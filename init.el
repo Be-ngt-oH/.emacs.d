@@ -3,3 +3,4 @@
 
 (require 'setup-appearance)
 
+(require 'setup-ido)
