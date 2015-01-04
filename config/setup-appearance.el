@@ -14,4 +14,8 @@
 ;; Display fill-column-indicator
 (add-hook 'prog-mode-hook 'fci-mode)
 
+;; Make sure pos-tip is loaded. It's automatically used by extensions like ac if
+;; available.
+(require 'pos-tip)
+
 (provide 'setup-appearance)

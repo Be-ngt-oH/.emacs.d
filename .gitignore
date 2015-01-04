@@ -1,3 +1,5 @@
 .cask
 backups
 auto-save-list
+.python-environments
+ac-comphist.dat

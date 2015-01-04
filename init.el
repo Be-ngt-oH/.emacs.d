@@ -17,3 +17,5 @@
 (require 'setup-basic-editing)
 (require 'setup-ido)
 (require 'setup-flycheck)
+(require 'setup-auto-complete)
+(require 'setup-jedi)
