@@ -16,3 +16,4 @@
 (require 'setup-appearance)
 (require 'setup-basic-editing)
 (require 'setup-ido)
+(require 'setup-flycheck)
