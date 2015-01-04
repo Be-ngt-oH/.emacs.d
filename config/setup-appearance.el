@@ -5,4 +5,13 @@
 ;; Set basic colors
 (load-theme 'wombat)
 
+;; Display column number in mode line
+(column-number-mode t)
+
+;; Appearance for all prog-modes
+;; Display line numbers
+(add-hook 'prog-mode-hook 'linum-mode)
+;; Display fill-column-indicator
+(add-hook 'prog-mode-hook 'fci-mode)
+
 (provide 'setup-appearance)

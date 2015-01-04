@@ -11,4 +11,5 @@
                  (concat user-emacs-directory "backups")))))
 
 (require 'setup-appearance)
+(require 'setup-basic-editing)
 (require 'setup-ido)
