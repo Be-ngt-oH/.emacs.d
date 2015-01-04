@@ -19,3 +19,4 @@
 (require 'setup-flycheck)
 (require 'setup-auto-complete)
 (require 'setup-jedi)
+(require 'setup-latex-mode)
