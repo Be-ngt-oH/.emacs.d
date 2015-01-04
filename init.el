@@ -13,6 +13,11 @@
 ;; Activate windmove keybindings
 (windmove-default-keybindings)		; shift+arrow keys
 
+;; Save point position between sessions
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" user-emacs-directory))
+
 (require 'setup-appearance)
 (require 'setup-basic-editing)
 (require 'setup-ido)
