@@ -1,3 +1,3 @@
-(setq fill-column 80)
+(setq-default fill-column 80)
 
 (provide 'setup-basic-editing)
