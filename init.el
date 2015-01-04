@@ -10,6 +10,9 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 
+;; Activate windmove keybindings
+(windmove-default-keybindings)		; shift+arrow keys
+
 (require 'setup-appearance)
 (require 'setup-basic-editing)
 (require 'setup-ido)
