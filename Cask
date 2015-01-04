@@ -11,3 +11,5 @@
 (depends-on "projectile")
 (depends-on "flx-ido")
 (depends-on "js2-mode")
+(depends-on "tern")
+(depends-on "tern-auto-complete")
