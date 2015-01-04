@@ -8,3 +8,5 @@
 (depends-on "auto-complete")
 (depends-on "pos-tip")
 (depends-on "jedi")
+(depends-on "projectile")
+(depends-on "flx-ido")

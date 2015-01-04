@@ -20,3 +20,4 @@
 (require 'setup-auto-complete)
 (require 'setup-jedi)
 (require 'setup-latex-mode)
+(require 'setup-projectile)
