@@ -10,3 +10,4 @@
 (depends-on "jedi")
 (depends-on "projectile")
 (depends-on "flx-ido")
+(depends-on "js2-mode")

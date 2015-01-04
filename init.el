@@ -21,3 +21,5 @@
 (require 'setup-jedi)
 (require 'setup-latex-mode)
 (require 'setup-projectile)
+(require 'setup-js2-mode)
+(require 'setup-file-mappings)
