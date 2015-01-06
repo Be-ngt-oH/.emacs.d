@@ -3,6 +3,9 @@
 ;; Sentence ends with period and one space
 (setq sentence-end-double-space nil)
 
+;; Always use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+
 ;; Swap the key-bindings of RET and C-j in prog-mode if they have the default
 ;; bindings (newline and newline-and-indent).
 (defun swap-bindings (key1 key2)
