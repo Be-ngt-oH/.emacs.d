@@ -1,3 +1,6 @@
+;; Prevent Emacs from showing the splash screen
+(setq inhibit-splash-screen t)
+
 ;; Hide mouse interface
 (menu-bar-mode -1)
 (tool-bar-mode -1)
