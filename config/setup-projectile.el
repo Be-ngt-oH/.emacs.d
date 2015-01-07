@@ -1,6 +1,6 @@
 (require 'projectile)
 (projectile-global-mode)
 
-(global-set-key (kbd "C-x f") 'projectile-find-file)
+(define-key projectile-mode-map (kbd "C-x f") 'projectile-find-file)
 
 (provide 'setup-projectile)
