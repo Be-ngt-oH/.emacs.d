@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: angular-di-array
+# key: di
+# group: angular
+# --
+[$1, function(${1:$(replace-regexp-in-string "'" "" yas-text)}) {
+  $0
+}]

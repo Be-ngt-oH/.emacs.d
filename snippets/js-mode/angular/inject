@@ -4,5 +4,7 @@
 # group: angular
 # --
 inject(function($1) {
+  ${1:$(let ((params (split-string (replace-regexp-in-string "_" "" (replace-regexp-in-string "," "" yas-text)))))
+  (mapconcat 'identity (cl-mapcar (apply-partially 'format "%s = _%s_;") params params) "\n  "))}
   $0
 })
