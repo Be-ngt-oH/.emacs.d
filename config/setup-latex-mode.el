@@ -6,7 +6,6 @@
    flyspell-mode
    ac-flyspell-workaround
    linum-mode
-   fci-mode
    auto-fill-mode))
 
 (provide 'setup-latex-mode)
