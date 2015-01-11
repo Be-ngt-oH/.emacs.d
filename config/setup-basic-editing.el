@@ -6,6 +6,9 @@
 ;; Always use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
 
+;; Overwrite region by typing
+(delete-selection-mode 1)
+
 ;; Swap the key-bindings of RET and C-j in prog-mode if they have the default
 ;; bindings (newline and newline-and-indent).
 (defun swap-bindings (key1 key2)
@@ -21,5 +24,9 @@
 	      (if (equal '(newline newline-and-indent)
 			 (list (key-binding kbd_RET) (key-binding kbd_Cj)))
 		  (swap-bindings kbd_RET kbd_Cj)))))
+
+;; Add expand-region command and bind it to M-h (replace mark-paragraph)
+(require 'expand-region)
+(global-set-key (kbd "M-h") 'er/expand-region)
 
 (provide 'setup-basic-editing)
