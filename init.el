@@ -18,6 +18,10 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
+;; Start Emacs server
+(require 'server)
+(server-start)
+
 (require 'setup-appearance)
 (require 'setup-basic-editing)
 (require 'setup-ido)
