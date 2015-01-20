@@ -33,3 +33,4 @@
 (require 'setup-js2-mode)
 (require 'setup-file-mappings)
 (require 'setup-yasnippet)
+(require 'setup-markdown)

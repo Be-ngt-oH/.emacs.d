@@ -14,3 +14,4 @@
 (depends-on "tern-auto-complete")
 (depends-on "yasnippet")
 (depends-on "expand-region")
+(depends-on "markdown-mode")
