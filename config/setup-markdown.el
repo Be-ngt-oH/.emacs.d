@@ -11,6 +11,7 @@
    flyspell-mode
    ac-flyspell-workaround
    linum-mode
-   auto-fill-mode))
+   auto-fill-mode
+   (lambda () (electric-indent-local-mode -1))))
 
 (provide 'setup-markdown)
