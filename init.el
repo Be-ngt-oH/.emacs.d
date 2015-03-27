@@ -34,3 +34,4 @@
 (require 'setup-file-mappings)
 (require 'setup-yasnippet)
 (require 'setup-markdown)
+(require 'setup-multiple-cursors)

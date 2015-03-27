@@ -15,3 +15,4 @@
 (depends-on "yasnippet")
 (depends-on "expand-region")
 (depends-on "markdown-mode")
+(depends-on "multiple-cursors")
