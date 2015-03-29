@@ -13,6 +13,13 @@
 ;; Activate windmove keybindings
 (windmove-default-keybindings)		; shift+arrow keys
 
+;; Load buffer-move and bind commands to bindings similar to windmove
+(require 'buffer-move)
+(global-set-key (kbd "<M-S-up>") 'buf-move-up)
+(global-set-key (kbd "<M-S-down>") 'buf-move-down)
+(global-set-key (kbd "<M-S-left>") 'buf-move-left)
+(global-set-key (kbd "<M-S-right>") 'buf-move-right)
+
 ;; Save point position between sessions
 (require 'saveplace)
 (setq-default save-place t)
