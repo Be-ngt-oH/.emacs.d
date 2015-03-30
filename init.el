@@ -31,6 +31,7 @@
 
 (require 'setup-appearance)
 (require 'setup-basic-editing)
+(require 'setup-blacklists)
 (require 'setup-ido)
 (require 'setup-flycheck)
 (require 'setup-auto-complete)
