@@ -4,6 +4,10 @@
 ;; Tern must be installed (npm install -g tern)
 (require 'tern)
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+;; Unbind tern find definition as it rarely helps
+(define-key tern-mode-keymap (kbd "M-.") nil)
+(define-key tern-mode-keymap (kbd "M-,") nil)
+(define-key tern-mode-keymap (kbd "C-M-.") nil)
 
 (eval-after-load 'tern
    '(progn
