@@ -8,3 +8,4 @@ projectile.cache
 .places
 .mc-lists.el
 session.*
+ido.last*
