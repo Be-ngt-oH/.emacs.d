@@ -2,7 +2,10 @@
 (add-to-list 'load-path "~/.emacs.d/config")
 
 ;; Setup Cask
-(require 'cask "~/.cask/cask.el")
+(if (string-equal system-type "darwin")
+    (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
+  (require 'cask "~/.cask/cask.el"))
+
 (cask-initialize)
 
 ;; Write backup files to own directory
@@ -30,6 +33,7 @@
 (unless (server-running-p)
   (server-start))
 
+(if (string-equal system-type "darwin") (require 'setup-osx-specifics))
 (require 'setup-appearance)
 (require 'setup-basic-editing)
 (require 'setup-blacklists)
