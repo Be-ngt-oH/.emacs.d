@@ -28,6 +28,10 @@
 (save-place-mode 1)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
+;; Use settings from .editorconfig if available
+(require 'editorconfig)
+(editorconfig-mode 1)
+
 ;; Start Emacs server
 (require 'server)
 (unless (server-running-p)

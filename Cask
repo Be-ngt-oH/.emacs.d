@@ -18,3 +18,4 @@
 (depends-on "multiple-cursors")
 (depends-on "buffer-move")
 (depends-on "web-mode")
+(depends-on "editorconfig")
