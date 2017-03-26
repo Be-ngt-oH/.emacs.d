@@ -2,9 +2,8 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Use pos-tip for displaying flycheck errors
-(eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
 
 (setq flycheck-highlighting-mode 'symbols)
 
