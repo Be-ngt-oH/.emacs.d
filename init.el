@@ -1,4 +1,5 @@
 ;; General emacs settings
+
 (add-to-list 'load-path "~/.emacs.d/config")
 
 ;; Setup Cask
@@ -52,3 +53,4 @@
 (require 'setup-yasnippet)
 (require 'setup-markdown)
 (require 'setup-multiple-cursors)
+(require 'setup-web-mode)
