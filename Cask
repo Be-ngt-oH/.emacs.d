@@ -10,8 +10,6 @@
 (depends-on "projectile")
 (depends-on "flx-ido")
 (depends-on "js2-mode")
-(depends-on "tern")
-(depends-on "tern-auto-complete")
 (depends-on "yasnippet")
 (depends-on "expand-region")
 (depends-on "markdown-mode")
@@ -19,3 +17,4 @@
 (depends-on "buffer-move")
 (depends-on "web-mode")
 (depends-on "editorconfig")
+(depends-on "exec-path-from-shell")

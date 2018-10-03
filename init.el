@@ -54,3 +54,4 @@
 (require 'setup-markdown)
 (require 'setup-multiple-cursors)
 (require 'setup-web-mode)
+(require 'setup-ruby-mode)
