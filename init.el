@@ -45,7 +45,7 @@
 (require 'setup-appearance)
 (require 'setup-basic-editing)
 (require 'setup-blacklists)
-(require 'setup-ido)
+(require 'setup-ivy)
 (require 'setup-flycheck)
 (require 'setup-auto-complete)
 (require 'setup-jedi)
