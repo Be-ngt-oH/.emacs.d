@@ -33,6 +33,9 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
+;; Disable alarm bell
+(setq ring-bell-function 'ignore)
+
 ;; Start Emacs server
 (require 'server)
 (unless (server-running-p)
