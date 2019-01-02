@@ -9,7 +9,6 @@
 (depends-on "jedi")
 (depends-on "projectile")
 (depends-on "ivy")
-(depends-on "flx-ido")
 (depends-on "js2-mode")
 (depends-on "yasnippet")
 (depends-on "expand-region")
