@@ -3,9 +3,6 @@
 ;; Prevent auto-insertion of encoding comment on save
 (setq-default ruby-insert-encoding-magic-comment nil)
 
-(require 'robe)
-(add-hook 'ruby-mode-hook 'robe-mode)
-
 (require 'setup-projectile)
 (defun run-rspec-on-current-file ()
   "Executes bundle exec rspec with the current file name."
