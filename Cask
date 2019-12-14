@@ -18,3 +18,4 @@
 (depends-on "web-mode")
 (depends-on "editorconfig")
 (depends-on "exec-path-from-shell")
+(depends-on "inf-ruby")
