@@ -29,4 +29,7 @@
 (require 'expand-region)
 (global-set-key (kbd "M-h") 'er/expand-region)
 
+;; Move by subwords, e.g. in CamelCased words
+(global-subword-mode 1)
+
 (provide 'setup-basic-editing)
