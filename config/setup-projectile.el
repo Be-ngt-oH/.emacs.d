@@ -18,4 +18,12 @@
   (projectile-with-default-dir
       (projectile-project-root) (compile
                                  (concat command " " (buffer-file-name) ":" (number-to-string (line-number-at-pos))))))
+
+(defun projectile-copy-filepath-as-kill ()
+  "Copy the path of the current buffer file name in relation to the project root."
+  (interactive)
+  (let ((string (file-relative-name (buffer-file-name) (projectile-project-root))))
+    (kill-new string)
+    (message "%s" string)))
+
 (provide 'setup-projectile)
