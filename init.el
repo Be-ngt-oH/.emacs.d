@@ -12,16 +12,12 @@
     flycheck
     flycheck-pos-tip
     auto-complete
-    jedi
     projectile
     ivy
-    js2-mode
-    yasnippet
     expand-region
     markdown-mode
     multiple-cursors
     buffer-move
-    web-mode
     editorconfig
     exec-path-from-shell
     inf-ruby
@@ -75,16 +71,11 @@
 (require 'setup-ivy)
 (require 'setup-flycheck)
 (require 'setup-auto-complete)
-(require 'setup-jedi)
 (require 'setup-latex-mode)
 (require 'setup-projectile)
-(require 'setup-js2-mode)
 (require 'setup-file-mappings)
-(require 'setup-yasnippet)
 (require 'setup-markdown)
 (require 'setup-multiple-cursors)
-(require 'setup-web-mode)
 (require 'setup-ruby-mode)
 (require 'setup-sql-mode)
 (require 'setup-github-links)
-

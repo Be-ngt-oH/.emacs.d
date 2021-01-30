@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: jasmine-afterEach
-# key: after
-# group: jasmine
-# --
-afterEach($0);

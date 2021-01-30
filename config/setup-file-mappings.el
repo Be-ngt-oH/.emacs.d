@@ -1,8 +1,6 @@
-;; Javascript
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 ;; Vue component files
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
 ;; Ruby templates
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode))
 
 (provide 'setup-file-mappings)
