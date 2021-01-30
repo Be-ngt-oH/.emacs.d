@@ -2,12 +2,33 @@
 
 (add-to-list 'load-path "~/.emacs.d/config")
 
-;; Setup Cask
-(if (string-equal system-type "darwin")
-    (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-  (require 'cask "~/.cask/cask.el"))
+(require 'package)
+(add-to-list 'package-archives
+             '("MELPA Stable" . "http://stable.melpa.org/packages/") t)
 
-(cask-initialize)
+(setq package-selected-packages
+  '(
+    pos-tip
+    flycheck
+    flycheck-pos-tip
+    auto-complete
+    jedi
+    projectile
+    ivy
+    js2-mode
+    yasnippet
+    expand-region
+    markdown-mode
+    multiple-cursors
+    buffer-move
+    web-mode
+    editorconfig
+    exec-path-from-shell
+    inf-ruby
+    ))
+(unless (cl-every #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
+  (package-install-selected-packages))
 
 ;; Fix path for globally installed utilities
 (require 'exec-path-from-shell)
@@ -66,3 +87,4 @@
 (require 'setup-ruby-mode)
 (require 'setup-sql-mode)
 (require 'setup-github-links)
+
