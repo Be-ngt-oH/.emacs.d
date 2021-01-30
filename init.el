@@ -1,28 +1,24 @@
 ;; General emacs settings
-
 (add-to-list 'load-path "~/.emacs.d/config")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(pos-tip flycheck flycheck-pos-tip auto-complete projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 (require 'package)
 (add-to-list 'package-archives
              '("MELPA Stable" . "http://stable.melpa.org/packages/") t)
 
-(setq package-selected-packages
-  '(
-    pos-tip
-    flycheck
-    flycheck-pos-tip
-    auto-complete
-    projectile
-    ivy
-    expand-region
-    markdown-mode
-    multiple-cursors
-    buffer-move
-    editorconfig
-    exec-path-from-shell
-    inf-ruby
-    ripgrep
-    ))
 (unless (cl-every #'package-installed-p package-selected-packages)
   (package-refresh-contents)
   (package-install-selected-packages))
