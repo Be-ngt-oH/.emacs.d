@@ -21,6 +21,7 @@
     editorconfig
     exec-path-from-shell
     inf-ruby
+    ripgrep
     ))
 (unless (cl-every #'package-installed-p package-selected-packages)
   (package-refresh-contents)
