@@ -1,7 +1,7 @@
 (require 'ruby-mode)
 
-;; Prevent auto-insertion of encoding comment on save
-(setq-default ruby-insert-encoding-magic-comment nil)
+(setq ruby-insert-encoding-magic-comment nil
+      ruby-align-to-stmt-keywords t)
 
 (require 'setup-projectile)
 (defun run-rspec-on-current-file ()
