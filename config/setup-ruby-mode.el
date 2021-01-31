@@ -3,6 +3,8 @@
 (setq ruby-insert-encoding-magic-comment nil
       ruby-align-to-stmt-keywords t)
 
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+
 (require 'setup-projectile)
 (defun run-rspec-on-current-file ()
   "Executes bundle exec rspec with the current file name."
