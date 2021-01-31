@@ -7,7 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(pos-tip flycheck flycheck-pos-tip auto-complete projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
+   '(git-commit pos-tip flycheck flycheck-pos-tip auto-complete projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -76,3 +76,4 @@
 (require 'setup-ruby-mode)
 (require 'setup-sql-mode)
 (require 'setup-github-links)
+(require 'setup-git-commit)
