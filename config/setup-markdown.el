@@ -9,7 +9,6 @@
    (add-hook 'markdown-mode-hook minor-mode))
  '(auto-complete-mode
    flyspell-mode
-   ac-flyspell-workaround
    linum-mode
    auto-fill-mode
    (lambda () (electric-indent-local-mode -1))))

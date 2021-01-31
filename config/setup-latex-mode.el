@@ -4,7 +4,6 @@
    (add-hook 'latex-mode-hook minor-mode))
  '(auto-complete-mode
    flyspell-mode
-   ac-flyspell-workaround
    linum-mode
    auto-fill-mode))
 
