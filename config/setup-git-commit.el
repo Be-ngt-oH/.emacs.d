@@ -3,7 +3,6 @@
 (setq git-commit-setup-hook
       '(git-commit-setup-changelog-support
         git-commit-propertize-diff
-        git-commit-turn-on-flyspell
         bug-reference-mode
         with-editor-usage-message))
 (setq git-commit-summary-max-length 72)
