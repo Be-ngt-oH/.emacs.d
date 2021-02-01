@@ -8,6 +8,18 @@
 ;; Set basic colors
 (load-theme 'wombat)
 
+(require 'diff-mode)
+(set-face-background 'diff-header nil)
+(set-face-background 'diff-file-header nil)
+(set-face-background 'diff-added nil)
+(set-face-foreground 'diff-added (face-foreground 'diff-indicator-added))
+(set-face-background 'diff-removed nil)
+(set-face-foreground 'diff-removed (face-foreground 'diff-indicator-removed))
+(set-face-attribute 'diff-refine-added nil :inherit 'diff-added)
+(set-face-background 'diff-refine-added nil)
+(set-face-attribute 'diff-refine-removed nil :inherit 'diff-removed)
+(set-face-background 'diff-refine-removed nil)
+
 ;; Display column number in mode line
 (column-number-mode t)
 
