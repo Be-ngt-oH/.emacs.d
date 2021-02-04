@@ -26,4 +26,8 @@
     (kill-new string)
     (message "%s" string)))
 
+;; The MacOS filesystem is case insensitive so my workspace/ directory matches
+;; the marker file for Bazel
+(if (string-equal system-type "darwin") (delete "WORKSPACE" projectile-project-root-files))
+
 (provide 'setup-projectile)
