@@ -3,8 +3,6 @@
 (setq ruby-insert-encoding-magic-comment nil
       ruby-align-to-stmt-keywords t)
 
-(add-hook 'ruby-mode-hook 'ruby-electric-mode)
-
 ;; Loading inf-ruby so it does its autoload thing and we can remove it here.
 (require 'inf-ruby)
 (delete 'inf-ruby-minor-mode ruby-mode-hook)
