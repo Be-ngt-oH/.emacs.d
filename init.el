@@ -77,3 +77,4 @@
 (require 'setup-sql-mode)
 (require 'setup-github-links)
 (require 'setup-git-commit)
+(require 'setup-ripgrep)
