@@ -16,8 +16,7 @@
  )
 
 (require 'package)
-(add-to-list 'package-archives
-             '("MELPA Stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (unless (cl-every #'package-installed-p package-selected-packages)
   (package-refresh-contents)
