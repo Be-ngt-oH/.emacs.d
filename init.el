@@ -78,3 +78,4 @@
 (require 'setup-github-links)
 (require 'setup-git-commit)
 (require 'setup-ripgrep)
+(require 'setup-python-mode)
