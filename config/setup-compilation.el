@@ -10,4 +10,6 @@
 (define-key compilation-mode-map (kbd "C-c r") 'compilation-toggle-comint-mode)
 (define-key comint-mode-map (kbd "C-c r") 'compilation-toggle-comint-mode)
 
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+
 (provide 'setup-compilation)
