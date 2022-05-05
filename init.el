@@ -47,6 +47,9 @@
 (save-place-mode 1)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
+;; Save minibuffer history
+(savehist-mode)
+
 ;; Use settings from .editorconfig if available
 (require 'editorconfig)
 (editorconfig-mode 1)
