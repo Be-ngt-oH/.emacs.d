@@ -27,8 +27,4 @@
 ;; Display line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 
-;; Make sure pos-tip is loaded. It's automatically used by extensions like ac if
-;; available.
-(require 'pos-tip)
-
 (provide 'setup-appearance)

@@ -2,8 +2,7 @@
 (mapc
  (lambda (minor-mode)
    (add-hook 'latex-mode-hook minor-mode))
- '(auto-complete-mode
-   flyspell-mode
+ '(flyspell-mode
    linum-mode
    auto-fill-mode))
 

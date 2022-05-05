@@ -7,7 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(eglot typescript-mode pyvenv git-commit pos-tip flycheck flycheck-pos-tip auto-complete projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
+   '(corfu eglot typescript-mode pyvenv git-commit flycheck projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -66,7 +66,7 @@
 (require 'setup-compilation)
 (require 'setup-ivy)
 (require 'setup-flycheck)
-(require 'setup-auto-complete)
+(require 'setup-corfu)
 (require 'setup-latex-mode)
 (require 'setup-projectile)
 (require 'setup-file-mappings)
