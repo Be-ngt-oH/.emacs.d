@@ -27,4 +27,8 @@
 ;; Display line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 
+(require 'corfu)
+(require 'vertico)
+(set-face-attribute 'vertico-current nil :inherit 'corfu-current)
+
 (provide 'setup-appearance)
