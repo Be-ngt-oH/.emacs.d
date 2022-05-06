@@ -1,4 +1,3 @@
-;; General emacs settings
 (add-to-list 'load-path "~/.emacs.d/config")
 
 (custom-set-variables
@@ -32,53 +31,34 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 
-;; Activate windmove keybindings
-(windmove-default-keybindings)		; shift+arrow keys
-
-;; Load buffer-move and bind commands to bindings similar to windmove
-(require 'buffer-move)
-(global-set-key (kbd "<M-S-up>") 'buf-move-up)
-(global-set-key (kbd "<M-S-down>") 'buf-move-down)
-(global-set-key (kbd "<M-S-left>") 'buf-move-left)
-(global-set-key (kbd "<M-S-right>") 'buf-move-right)
-
-;; Save point position between sessions
-(require 'saveplace)
-(save-place-mode 1)
-(setq save-place-file (expand-file-name ".places" user-emacs-directory))
-
 ;; Save minibuffer history
 (savehist-mode)
-
-;; Use settings from .editorconfig if available
-(require 'editorconfig)
-(editorconfig-mode 1)
-
-;; Disable alarm bell
-(setq ring-bell-function 'ignore)
 
 ;; Start Emacs server
 (require 'server)
 (unless (server-running-p)
   (server-start))
 
+;; Enable disabled commands
+(put 'dired-find-alternate-file 'disabled nil)
+
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode))
+
 (if (string-equal system-type "darwin") (require 'setup-osx-specifics))
 (require 'setup-appearance)
 (require 'setup-basic-editing)
-(require 'setup-blacklists)
-(require 'setup-compilation)
+(require 'setup-keybindings)
+
 (require 'setup-corfu)
-(require 'setup-file-mappings)
 (require 'setup-flycheck)
-(require 'setup-git-commit)
-(require 'setup-github-links)
+(require 'setup-grep)
 (require 'setup-ivy)
-(require 'setup-latex-mode)
-(require 'setup-markdown)
-(require 'setup-multiple-cursors)
 (require 'setup-projectile)
-(require 'setup-python-mode)
-(require 'setup-ripgrep)
+
+(require 'setup-git-commit-mode)
+(require 'setup-latex-mode)
+(require 'setup-markdown-mode)
 (require 'setup-ruby-mode)
 (require 'setup-sql-mode)
 (require 'setup-typescript-mode)

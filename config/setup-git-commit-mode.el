@@ -8,4 +8,4 @@
 (setq git-commit-summary-max-length 72)
 (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72)))
 
-(provide 'setup-git-commit)
+(provide 'setup-git-commit-mode)

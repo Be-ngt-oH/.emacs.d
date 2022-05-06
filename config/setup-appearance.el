@@ -27,4 +27,12 @@
 ;; Display line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 
+(setq show-paren-delay 0)
+(show-paren-mode -1)
+
+;; Disable alarm bell
+(setq ring-bell-function 'ignore)
+
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+
 (provide 'setup-appearance)

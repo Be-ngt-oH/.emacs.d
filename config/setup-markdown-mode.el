@@ -1,5 +1,4 @@
 (require 'markdown-mode)
-
 ;; Use pandoc markdown
 (setq markdown-command "/usr/bin/pandoc --to html5 --toc --standalone --mathjax")
 
@@ -12,4 +11,4 @@
    auto-fill-mode
    (lambda () (electric-indent-local-mode -1))))
 
-(provide 'setup-markdown)
+(provide 'setup-markdown-mode)

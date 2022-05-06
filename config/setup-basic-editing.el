@@ -9,14 +9,16 @@
 ;; Overwrite region by typing
 (delete-selection-mode 1)
 
-;; Add expand-region command and bind it to M-h (replace mark-paragraph)
-(require 'expand-region)
-(global-set-key (kbd "M-h") 'er/expand-region)
-
 ;; Move by subwords, e.g. in CamelCased words
 (global-subword-mode 1)
 
-(setq show-paren-delay 0)
-(show-paren-mode -1)
+;; Save point position between sessions
+(require 'saveplace)
+(save-place-mode 1)
+(setq save-place-file (expand-file-name "places" user-emacs-directory))
+
+;; Use settings from .editorconfig if available
+(require 'editorconfig)
+(editorconfig-mode 1)
 
 (provide 'setup-basic-editing)
