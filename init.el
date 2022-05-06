@@ -7,7 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(marginalia orderless corfu eglot typescript-mode pyvenv git-commit flycheck projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
+   '(orderless corfu eglot typescript-mode pyvenv git-commit flycheck projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -74,7 +74,6 @@
 (require 'setup-github-links)
 (require 'setup-ivy)
 (require 'setup-latex-mode)
-(require 'setup-marginalia)
 (require 'setup-markdown)
 (require 'setup-multiple-cursors)
 (require 'setup-projectile)
