@@ -34,4 +34,8 @@
 (define-key ruby-mode-map (kbd "C-c C-t") 'run-rspec-on-current-file)
 (define-key ruby-mode-map (kbd "C-c t") 'run-rspec-on-current-line)
 
+(require 'flymake)
+(define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
+
 (provide 'setup-keybindings)
