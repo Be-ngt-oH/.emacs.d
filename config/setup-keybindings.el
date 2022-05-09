@@ -38,4 +38,8 @@
 (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
 
+(require 'flycheck)
+(define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
+(define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)
+
 (provide 'setup-keybindings)
