@@ -20,6 +20,10 @@
 (set-face-attribute 'diff-refine-removed nil :inherit 'diff-removed)
 (set-face-background 'diff-refine-removed nil)
 
+(require 'eglot)
+(set-face-attribute 'eglot-highlight-symbol-face nil :inherit nil)
+(set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :inherit 'flymake-note)
+
 (require 'popup)
 (set-face-background 'popup-tip-face "#191a1b")
 (set-face-foreground 'popup-tip-face "white")
