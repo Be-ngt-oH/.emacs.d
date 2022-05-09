@@ -6,7 +6,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flymake-diagnostic-at-point flycheck-popup-tip ivy-prescient orderless corfu eglot typescript-mode pyvenv git-commit flycheck projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
+   '(add-node-modules-path flymake-diagnostic-at-point flycheck-popup-tip ivy-prescient orderless corfu eglot typescript-mode pyvenv git-commit flycheck projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -56,6 +56,7 @@
 (require 'setup-projectile)
 
 (require 'setup-git-commit-mode)
+(require 'setup-javascript-mode)
 (require 'setup-latex-mode)
 (require 'setup-markdown-mode)
 (require 'setup-ruby-mode)
