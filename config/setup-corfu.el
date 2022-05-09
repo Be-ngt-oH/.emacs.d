@@ -8,7 +8,7 @@
 (setq completion-styles '(orderless basic)
       completion-category-defaults nil
       completion-category-overrides '((file (styles . (partial-completion)))))
-(define-key corfu-map (kbd "SPC") 'corfu-insert-separator)
+(define-key corfu-map (kbd "C-SPC") 'corfu-insert-separator)
 
 (defun corfu-enable-in-minibuffer ()
   "Enable Corfu in the minibuffer if `completion-at-point' is bound."
