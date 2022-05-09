@@ -20,6 +20,10 @@
 (set-face-attribute 'diff-refine-removed nil :inherit 'diff-removed)
 (set-face-background 'diff-refine-removed nil)
 
+(require 'popup)
+(set-face-background 'popup-tip-face "#191a1b")
+(set-face-foreground 'popup-tip-face "white")
+
 ;; Display column number in mode line
 (column-number-mode t)
 
@@ -27,6 +31,7 @@
 ;; Display line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 
+(require 'paren)
 (setq show-paren-delay 0)
 (show-paren-mode -1)
 
