@@ -1,5 +1,6 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(setq flycheck-global-modes '(not typescript-mode js-mode))
 
 (setq flycheck-highlighting-mode 'symbols)
 
