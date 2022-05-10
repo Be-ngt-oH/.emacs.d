@@ -27,6 +27,7 @@
 (require 'popup)
 (set-face-background 'popup-tip-face "#191a1b")
 (set-face-foreground 'popup-tip-face "white")
+(setq popup-tip-max-width nil)
 
 ;; Display column number in mode line
 (column-number-mode t)
