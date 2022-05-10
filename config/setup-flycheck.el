@@ -7,6 +7,6 @@
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (setq flycheck-emacs-lisp-load-path load-path)
 
-(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
 
 (provide 'setup-flycheck)
