@@ -50,6 +50,7 @@
 (require 'setup-keybindings)
 
 (require 'setup-corfu)
+(require 'setup-eglot)
 (require 'setup-flycheck)
 (require 'setup-grep)
 (require 'setup-ivy)
