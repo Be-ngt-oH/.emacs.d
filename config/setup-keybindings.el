@@ -42,4 +42,8 @@
 (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
 (define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)
 
+(require 'js)
+(require 'sgml-mode)
+(define-key js-mode-map (kbd "C-c C-e") 'sgml-close-tag)
+
 (provide 'setup-keybindings)
