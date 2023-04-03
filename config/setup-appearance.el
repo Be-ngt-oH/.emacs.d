@@ -22,6 +22,13 @@
 (set-face-attribute 'eglot-highlight-symbol-face nil :inherit nil)
 (set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :inherit 'flymake-note)
 
+(require 'tree-sitter-hl)
+(set-face-attribute 'tree-sitter-hl-face:operator nil :inherit nil)
+(set-face-attribute 'tree-sitter-hl-face:method.call nil :inherit nil)
+(set-face-attribute 'tree-sitter-hl-face:number nil :inherit nil)
+(set-face-attribute 'tree-sitter-hl-face:tag nil :inherit 'tree-sitter-hl-face:function.call)
+(set-face-attribute 'tree-sitter-hl-face:attribute nil :inherit 'font-lock-variable-name-face)
+
 (require 'flycheck-posframe)
 (set-face-background 'flycheck-posframe-face "#191a1b")
 
