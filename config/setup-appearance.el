@@ -19,7 +19,6 @@
 (set-face-attribute 'diff-refine-removed nil :inherit 'diff-removed :background nil)
 
 (require 'eglot)
-(set-face-attribute 'eglot-highlight-symbol-face nil :inherit nil)
 (set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :inherit 'flymake-note)
 
 (require 'tree-sitter-hl)
