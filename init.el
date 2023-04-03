@@ -43,7 +43,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
 
 (if (string-equal system-type "darwin") (require 'setup-osx-specifics))
 (require 'setup-appearance)
