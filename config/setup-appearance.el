@@ -36,7 +36,7 @@
 
 ;; Appearance for all prog-modes
 ;; Display line numbers
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (require 'paren)
 (setq show-paren-delay 0)

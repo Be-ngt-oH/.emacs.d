@@ -3,7 +3,7 @@
  (lambda (minor-mode)
    (add-hook 'latex-mode-hook minor-mode))
  '(flyspell-mode
-   linum-mode
+   display-line-numbers-mode
    auto-fill-mode))
 
 (provide 'setup-latex-mode)

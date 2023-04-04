@@ -7,7 +7,7 @@
  (lambda (minor-mode)
    (add-hook 'markdown-mode-hook minor-mode))
  '(flyspell-mode
-   linum-mode
+   display-line-numbers-mode
    auto-fill-mode
    (lambda () (electric-indent-local-mode -1))))
 
