@@ -21,16 +21,11 @@
 (require 'eglot)
 (set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :inherit 'flymake-note)
 
-(require 'tree-sitter-hl)
-(set-face-attribute 'font-lock-constant-face nil :foreground nil)
+(set-face-attribute 'font-lock-constant-face nil :foreground nil :inherit 'font-lock-type-face)
 (set-face-attribute 'font-lock-keyword-face nil :weight 'normal)
 (set-face-attribute 'font-lock-builtin-face nil :inherit 'font-lock-keyword-face :foreground nil)
 (set-face-attribute 'font-lock-function-name-face nil :foreground nil)
-
-(set-face-attribute 'tree-sitter-hl-face:operator nil :inherit nil)
-(set-face-attribute 'tree-sitter-hl-face:function.call nil :inherit 'font-lock-function-name-face)
-(set-face-attribute 'tree-sitter-hl-face:property nil :inherit nil :slant 'normal)
-(set-face-attribute 'tree-sitter-hl-face:attribute nil :inherit 'font-lock-variable-name-face)
+(set-face-attribute 'font-lock-type-face nil :weight 'normal)
 
 (require 'flycheck-posframe)
 (set-face-background 'flycheck-posframe-face "#191a1b")

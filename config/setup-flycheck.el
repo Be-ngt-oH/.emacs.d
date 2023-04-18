@@ -1,6 +1,6 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(setq flycheck-global-modes '(not typescript-mode typescript-tsx-mode js-mode js-jsx-mode))
+(setq flycheck-global-modes '(not typescript-ts-mode tsx-ts-mode js-mode javascript-mode js-ts-mode js-jsx-mode))
 
 (setq flycheck-highlighting-mode 'symbols)
 

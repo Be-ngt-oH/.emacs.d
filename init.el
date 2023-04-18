@@ -6,7 +6,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(apheleia flycheck-posframe add-node-modules-path ivy-prescient orderless corfu eglot typescript-mode pyvenv git-commit flycheck projectile ivy expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep tree-sitter tree-sitter-langs)))
+   '(apheleia flycheck flycheck-posframe add-node-modules-path ivy ivy-prescient orderless corfu pyvenv git-commit projectile expand-region markdown-mode multiple-cursors buffer-move editorconfig exec-path-from-shell inf-ruby ripgrep)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -43,7 +43,19 @@
 
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\Dockerfile\\'" . dockerfile-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-ts-mode))
+
+(add-to-list 'major-mode-remap-alist '(sh-mode . bash-ts-mode))
+(add-to-list 'major-mode-remap-alist '(csharp-mode . csharp-ts-mode))
+(add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
+(add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))
+(add-to-list 'major-mode-remap-alist '(js-mode . js-ts-mode))
+(add-to-list 'major-mode-remap-alist '(js-json-mode . json-ts-mode))
+(add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
+(add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
 
 (if (string-equal system-type "darwin") (require 'setup-osx-specifics))
 (require 'setup-appearance)
@@ -57,7 +69,7 @@
 (require 'setup-grep)
 (require 'setup-ivy)
 (require 'setup-projectile)
-(require 'setup-tree-sitter)
+(require 'setup-treesit)
 
 (require 'setup-git-commit-mode)
 (require 'setup-javascript-mode)

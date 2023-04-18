@@ -28,11 +28,11 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (require 'python)
-(define-key python-mode-map (kbd "C-c C-t") 'run-pytest-on-current-file)
+(define-key python-base-mode-map (kbd "C-c C-t") 'run-pytest-on-current-file)
 
 (require 'ruby-mode)
-(define-key ruby-mode-map (kbd "C-c C-t") 'run-rspec-on-current-file)
-(define-key ruby-mode-map (kbd "C-c t") 'run-rspec-on-current-line)
+(define-key ruby-base-mode-map (kbd "C-c C-t") 'run-rspec-on-current-file)
+(define-key ruby-base-mode-map (kbd "C-c t") 'run-rspec-on-current-line)
 
 (require 'flymake)
 (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
@@ -44,6 +44,6 @@
 
 (require 'js)
 (require 'sgml-mode)
-(define-key js-mode-map (kbd "C-c C-e") 'sgml-close-tag)
+(define-key js-base-mode-map (kbd "C-c C-e") 'sgml-close-tag)
 
 (provide 'setup-keybindings)
