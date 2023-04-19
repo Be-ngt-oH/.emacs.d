@@ -43,8 +43,6 @@
     (kill-new string)
     (message "%s" string)))
 
-(require 'compile)
-
 (defun compilation-toggle-comint-mode ()
   "Toggles between comint/read-only-mode and compilation mode."
   (interactive)
@@ -70,4 +68,4 @@
   (interactive)
   (run-shell-command-with-file-name "pytest"))
 
-(provide 'extra-commands)
+(provide 'config-extra-commands)
