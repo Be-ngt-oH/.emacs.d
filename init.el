@@ -176,18 +176,21 @@
 (use-package config-osx-specifics :load-path "config/" :if (eq system-type 'darwin))
 (use-package config-faces :load-path "config/")
 (use-package config-extra-commands :load-path "config/"
-  :requires python
-  :defines python-base-mode-map
+  :demand t
   :bind (
          :map ruby-base-mode-map
          ("C-c C-t" . run-rspec-on-current-file)
          ("C-c t" . run-rspect-on-current-line)
-         :map python-base-mode-map
-         ("C-c C-t" . run-pytest-on-current-file)
          :map compilation-mode-map
          ("C-c r" . compilation-toggle-comint-mode)
          :map comint-mode-map
-         ("C-c r" . compilation-toggle-comint-mode)))
+         ("C-c r" . compilation-toggle-comint-mode))
+  :config
+  (use-package python
+    :bind (
+           :map python-base-mode-map
+           ("C-c C-t" . run-pytest-on-current-file)))
+  )
 
 (use-package emacs
   :config
