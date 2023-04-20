@@ -20,9 +20,13 @@
   :custom-face
   (font-lock-builtin-face ((t (:inherit font-lock-keyword-face :foreground unspecified))))
   (font-lock-constant-face ((t (:inherit font-lock-type-face :foreground unspecified))))
-  (font-lock-function-name-face ((t (:foreground unspecified))))
   (font-lock-keyword-face ((t (:weight normal))))
   (font-lock-type-face ((t (:weight normal)))))
+
+(use-package emacs
+  :custom-face
+  (typescript-ts-jsx-tag-face ((t (:inherit font-lock-keyword-face))))
+  (typescript-ts-jsx-attribute-face ((t (:inherit font-lock-variable-name-face)))))
 
 (use-package flycheck-posframe
   :custom-face
