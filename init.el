@@ -116,13 +116,14 @@
 
 (use-package corfu
   :ensure t
+  :demand t
   :custom
   (corfu-auto t)
   (corfu-preview-current nil)
   :bind
   (:map corfu-map ("C-SPC" . corfu-insert-separator))
   :config
-  (global-corfu-mode t)
+  (global-corfu-mode)
   ;; https://github.com/minad/corfu#completing-in-the-minibuffer
   (defun corfu-enable-in-minibuffer ()
     "Enable Corfu in the minibuffer if `completion-at-point' is bound."
