@@ -140,7 +140,7 @@
   ;; https://github.com/minad/corfu#installation-and-configuration
   (completion-styles '(orderless basic))
   (completation-category-defaults nil)
-  (completion-category-overrides '((file (style . (partial-completion))))))
+  (completion-category-overrides '((file (styles . (partial-completion))))))
 
 (use-package flycheck
   :ensure t
