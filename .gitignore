@@ -16,3 +16,5 @@ history
 multisession/
 tree-sitter/
 custom.el
+/eln-cache
+tramp
