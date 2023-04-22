@@ -76,7 +76,7 @@
 (use-package editorconfig :ensure t :config (editorconfig-mode t))
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
 (use-package add-node-modules-path :ensure t :hook ((js-base-mode typescript-ts-base-mode) . add-node-modules-path))
-(use-package ripgrep :ensure t :custom ripgrep-arguments "--smart-case")
+(use-package rg :ensure t :hook (rg-mode . (lambda () (setq truncate-lines t))))
 (use-package pyvenv :ensure t)
 (use-package inf-ruby :ensure t)
 
