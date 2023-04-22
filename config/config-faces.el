@@ -3,6 +3,7 @@
   (tooltip  ((t (:background "#191a1b" :foreground ,(face-foreground 'default))))))
 
 (use-package diff-mode
+  :defer t
   :custom-face
   (diff-file-header ((t (:background unspecified))))
   (diff-header ((t (:background unspecified))))
@@ -29,6 +30,7 @@
   (typescript-ts-jsx-attribute-face ((t (:inherit font-lock-variable-name-face)))))
 
 (use-package flycheck-posframe
+  :defer t
   :custom-face
   (flycheck-posframe-face ((t (:background "#191a1b")))))
 
