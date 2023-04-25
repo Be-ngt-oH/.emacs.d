@@ -72,7 +72,7 @@
          ("S-<left>" . windmove-left)
          ("S-<right>" . windmove-right)))
 
-(use-package expand-region :ensure t :bind ([remap mark-paragraph] . er/expand-region))
+(use-package expand-region :ensure t :bind ("M-h" . er/expand-region))
 (use-package apheleia :ensure t :hook prog-mode)
 (use-package editorconfig :ensure t :config (editorconfig-mode t))
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
