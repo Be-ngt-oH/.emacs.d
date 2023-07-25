@@ -16,7 +16,7 @@
 (use-package saveplace :custom (save-place-file (expand-file-name "places" user-emacs-directory)) (save-place-mode 1))
 (use-package custom :config (load-theme 'wombat))
 
-(use-package display-line-numbers :hook (prog-mode latex-mode markdown-mode))
+(use-package display-line-numbers :hook (prog-mode latex-mode markdown-mode yaml-ts-mode))
 (use-package simple :config (column-number-mode t) :hook ((latex-mode markdown-mode) . auto-fill-mode))
 (use-package ansi-color :hook (compilation-filter . ansi-color-compilation-filter))
 (use-package paren :defer t :custom (show-paren-delay 0) (show-paren-mode nil))
