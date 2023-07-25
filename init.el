@@ -205,7 +205,7 @@
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
   (add-to-list 'auto-mode-alist '("\\Dockerfile\\'" . dockerfile-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
 
   (add-to-list 'major-mode-remap-alist '(sh-mode . bash-ts-mode))
   (add-to-list 'major-mode-remap-alist '(csharp-mode . csharp-ts-mode))
