@@ -30,22 +30,6 @@
   (eglot-ignored-server-capabilities '(:documentHighlightProvider))
   :hook ((js-base-mode typescript-ts-base-mode) . eglot-ensure))
 
-(use-package treesit
-  :defer t
-  :config
-  (setq treesit-language-source-alist
-        '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
-          (c-sharp . ("https://github.com/tree-sitter/tree-sitter-c-sharp"))
-          (css . ("https://github.com/tree-sitter/tree-sitter-css"))
-          (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
-          (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
-          (json . ("https://github.com/tree-sitter/tree-sitter-json"))
-          (python . ("https://github.com/tree-sitter/tree-sitter-python"))
-          (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
-          (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
-          (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
-          (yaml . ("https://github.com/ikatyang/tree-sitter-yaml")))))
-
 (use-package grep
   :defer t
   :custom
