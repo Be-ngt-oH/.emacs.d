@@ -45,6 +45,7 @@
 (use-package sql :defer t :hook (sql-interactive-mode . (lambda () (setq truncate-lines t))))
 
 (use-package flymake
+  :hook prog-mode
   :bind (
          :map flymake-mode-map
          ("M-n" . flymake-goto-next-error)
@@ -127,18 +128,18 @@
   (completation-category-defaults nil)
   (completion-category-overrides '((file (styles . (partial-completion))))))
 
-(use-package flycheck
-  :ensure t
-  :custom
-  (flycheck-global-modes '(not typescript-ts-mode tsx-ts-mode js-mode javascript-mode js-ts-mode js-jsx-mode))
-  (flycheck-highlighting-mode 'symbols)
-  (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-  (global-flycheck-mode t)
-  :bind (
-         :map flycheck-mode-map
-         ("M-n" . flycheck-next-error)
-         ("M-p" . flycheck-previous-error)))
-(use-package flycheck-posframe :ensure t :hook flycheck-mode)
+;; (use-package flycheck
+;;   :ensure t
+;;   :custom
+;;   (flycheck-global-modes '(not typescript-ts-mode tsx-ts-mode js-mode javascript-mode js-ts-mode js-jsx-mode))
+;;   (flycheck-highlighting-mode 'symbols)
+;;   (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+;;   (global-flycheck-mode t)
+;;   :bind (
+;;          :map flycheck-mode-map
+;;          ("M-n" . flycheck-next-error)
+;;          ("M-p" . flycheck-previous-error)))
+;; (use-package flycheck-posframe :ensure t :hook flycheck-mode)
 
 (use-package git-commit
   :ensure t
