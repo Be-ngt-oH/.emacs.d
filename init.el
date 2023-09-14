@@ -17,7 +17,10 @@
 (use-package custom :config (load-theme 'wombat))
 
 (use-package display-line-numbers :hook (prog-mode latex-mode markdown-mode yaml-ts-mode))
-(use-package simple :config (column-number-mode t) :hook ((latex-mode) . auto-fill-mode))
+(use-package simple
+  :custom (truncate-lines t)
+  :config (column-number-mode t)
+  :hook ((latex-mode) . auto-fill-mode))
 (use-package ansi-color :hook (compilation-filter . ansi-color-compilation-filter))
 (use-package paren :defer t :custom (show-paren-delay 0) (show-paren-mode nil))
 
