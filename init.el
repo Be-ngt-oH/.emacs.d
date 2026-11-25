@@ -24,7 +24,12 @@
   :config (column-number-mode t)
   :hook ((latex-mode) . auto-fill-mode))
 (use-package ansi-color :hook (compilation-filter . ansi-color-compilation-filter))
-(use-package paren :defer t :custom (show-paren-delay 0) (show-paren-mode nil))
+(use-package paren
+  :defer t
+  :custom
+  (show-paren-delay 0)
+  (show-paren-mode nil)
+  (show-paren-not-in-comments-or-strings 'all))
 
 (use-package dired :defer t :config (put 'dired-find-alternate-file 'disabled nil))
 (use-package flyspell :hook (latex-mode markdown-mode))
