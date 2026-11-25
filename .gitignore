@@ -3,7 +3,7 @@ auto-save-list
 .python-environments
 ac-comphist.dat
 projectile-bookmarks.eld
-projectile.cache
+projectile-frecency.eld
 places
 .mc-lists.el
 session.*
