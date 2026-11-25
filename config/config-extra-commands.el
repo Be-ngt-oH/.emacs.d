@@ -15,11 +15,22 @@
       ((base_url "https://github.com/")
        (git_remote (shell-command-to-string "git config --get remote.origin.url"))
        (repo (and
-              (string-match "git@github.com:\\(.*\\)\.git" git_remote)
-              (match-string 1 git_remote))
-             )
-       (file (substring (shell-command-to-string (concat "git ls-files --full-name " buffer-file-name)) 0 -1)))
-    (concat base_url repo "/blob/master/" file "#L" (number-to-string (line-number-at-pos)))))
+              (string-match "github\\.com[:/]\\(.+?\\)\\(?:\\.git\\)?/?$" (string-trim git_remote))
+              (match-string 1 (string-trim git_remote))))
+       (file (string-trim (shell-command-to-string
+                           (concat "git ls-files --full-name -- "
+                                   (shell-quote-argument buffer-file-name)))))
+       (default_branch (string-remove-prefix
+                        "origin/"
+                        (string-trim (shell-command-to-string
+                                      "git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null")))))
+    (unless repo
+      (user-error "Not a GitHub remote: %s" (string-trim git_remote)))
+    (when (string-empty-p file)
+      (user-error "File is not tracked by git: %s" buffer-file-name))
+    (when (string-empty-p default_branch)
+      (user-error "Default branch unknown; run `git remote set-head origin --auto'"))
+    (concat base_url repo "/blob/" default_branch "/" file "#L" (number-to-string (line-number-at-pos)))))
 
 (require 'projectile)
 
