@@ -86,7 +86,7 @@
   :config
   (setf (alist-get 'rubocop apheleia-formatters)
         '("bundle" "exec" "rubocop" "--stdin" filepath "--auto-correct" "--stderr" "--format" "quiet" "--fail-level" "fatal")))
-(use-package editorconfig :ensure t :config (editorconfig-mode t))
+(use-package editorconfig :config (editorconfig-mode t))
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
 (use-package add-node-modules-path :ensure t :hook ((js-base-mode typescript-ts-base-mode) . add-node-modules-path))
 (use-package rg :ensure t :defer t)
