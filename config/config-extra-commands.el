@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (defun open-on-github ()
   "Opens the current file/line on GitHub."
   (interactive)

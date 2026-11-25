@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (use-package emacs
   :custom
   (sentence-end-double-space nil)
@@ -11,7 +13,7 @@
 
 (use-package server :commands server-running-p :config (unless (server-running-p) (server-start)))
 (use-package package :config (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
-(use-package cus-edit :custom custom-file (expand-file-name "custom.el" user-emacs-directory))
+(use-package cus-edit :custom (custom-file (expand-file-name "custom.el" user-emacs-directory)))
 (use-package savehist :config (savehist-mode))
 (use-package saveplace :custom (save-place-file (expand-file-name "places" user-emacs-directory)) (save-place-mode 1))
 (use-package custom :config (load-theme 'wombat))
@@ -39,8 +41,8 @@
 (use-package grep
   :defer t
   :custom
-  grep-find-ignored-directories (append vc-directory-exclusion-list
-                                        '("bower_components" "vendor" "node_modules" "elpa")))
+  (grep-find-ignored-directories (append vc-directory-exclusion-list
+                                         '("bower_components" "vendor" "node_modules" "elpa"))))
 
 (use-package ruby-mode
   :defer t
@@ -231,7 +233,7 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode))
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\Dockerfile\\'" . dockerfile-ts-mode))
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
 
   (add-to-list 'major-mode-remap-alist '(sh-mode . bash-ts-mode))

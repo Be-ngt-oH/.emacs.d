@@ -1,6 +1,15 @@
+;;; -*- lexical-binding: t -*-
+
 (use-package emacs
   :custom-face
-  (tooltip  ((t (:background "#191a1b" :foreground ,(face-foreground 'default))))))
+  (tooltip  ((t (:background "#191a1b" :foreground ,(face-foreground 'default)))))
+  (eglot-diagnostic-tag-unnecessary-face ((t (:inherit flymake-note))))
+  (font-lock-builtin-face ((t (:inherit font-lock-keyword-face :foreground unspecified))))
+  (font-lock-constant-face ((t (:inherit font-lock-type-face :foreground unspecified))))
+  (font-lock-keyword-face ((t (:weight normal))))
+  (font-lock-type-face ((t (:weight normal))))
+  (typescript-ts-jsx-tag-face ((t (:inherit font-lock-keyword-face))))
+  (typescript-ts-jsx-attribute-face ((t (:inherit font-lock-variable-name-face)))))
 
 (use-package diff-mode
   :defer t
@@ -12,21 +21,5 @@
   :config
   (set-face-attribute 'diff-added nil :background 'unspecified :foreground (face-foreground 'diff-indicator-added))
   (set-face-attribute 'diff-removed nil :background 'unspecified :foreground (face-foreground 'diff-indicator-removed)))
-
-(use-package emacs
-  :custom-face
-  (eglot-diagnostic-tag-unnecessary-face ((t (:inherit flymake-note)))))
-
-(use-package emacs
-  :custom-face
-  (font-lock-builtin-face ((t (:inherit font-lock-keyword-face :foreground unspecified))))
-  (font-lock-constant-face ((t (:inherit font-lock-type-face :foreground unspecified))))
-  (font-lock-keyword-face ((t (:weight normal))))
-  (font-lock-type-face ((t (:weight normal)))))
-
-(use-package emacs
-  :custom-face
-  (typescript-ts-jsx-tag-face ((t (:inherit font-lock-keyword-face))))
-  (typescript-ts-jsx-attribute-face ((t (:inherit font-lock-variable-name-face)))))
 
 (provide 'config-faces)

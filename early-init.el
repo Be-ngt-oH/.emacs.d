@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; Disable GC during startup
 (defvar gc-cons-threshold-default gc-cons-threshold)
 (setq gc-cons-threshold most-positive-fixnum)
