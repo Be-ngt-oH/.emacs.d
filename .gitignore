@@ -18,3 +18,5 @@ tree-sitter/
 custom.el
 /eln-cache
 tramp
+/user-lisp/*.elc
+/user-lisp/.user-lisp-autoloads.el

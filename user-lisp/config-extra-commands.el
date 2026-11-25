@@ -1,10 +1,12 @@
 ;;; -*- lexical-binding: t -*-
 
+;;;###autoload
 (defun open-on-github ()
   "Opens the current file/line on GitHub."
   (interactive)
   (browse-url (github-url)))
 
+;;;###autoload
 (defun copy-github-url-as-kill ()
   "Copy the URL to the current file/line on GitHub."
   (interactive)
@@ -36,12 +38,14 @@
 
 (require 'projectile)
 
+;;;###autoload
 (defun run-shell-command-with-file-name (command)
   "Invoke a shell command with the current file."
   (interactive "sCommand: ")
   (projectile-with-default-dir
       (projectile-project-root) (compile
                                  (concat command " " (buffer-file-name)))))
+;;;###autoload
 (defun run-shell-command-with-file-name-and-line (command)
   "Invoke a shell command with the current file name and line separated by a colon."
   (interactive "sCommand: ")
@@ -49,6 +53,7 @@
       (projectile-project-root) (compile
                                  (concat command " " (buffer-file-name) ":" (number-to-string (line-number-at-pos))))))
 
+;;;###autoload
 (defun projectile-copy-filepath-as-kill ()
   "Copy the path of the current buffer file name in relation to the project root."
   (interactive)
@@ -56,6 +61,7 @@
     (kill-new string)
     (message "%s" string)))
 
+;;;###autoload
 (defun compilation-toggle-comint-mode ()
   "Toggles between comint/read-only-mode and compilation mode."
   (interactive)
@@ -63,19 +69,23 @@
       (progn (call-interactively 'comint-mode) (call-interactively 'read-only-mode))
       (progn (call-interactively 'compilation-mode) (call-interactively 'read-only-mode))))
 
+;;;###autoload
 (defun run-rspec-on-current-file ()
   "Executes rspec with the current file name."
   (interactive)
   (run-shell-command-with-file-name "bundle exec rspec --no-color"))
+;;;###autoload
 (defun run-rspec-on-current-line ()
   "Executes rspec with the current file name and line."
   (interactive)
   (run-shell-command-with-file-name-and-line "bundle exec rspec --no-color"))
+;;;###autoload
 (defun run-rspec-outline-on-current-file ()
   "Executes rspec --dry-run --format documentation with the current file name."
   (interactive)
   (run-shell-command-with-file-name "bundle exec rspec --no-color --dry-run --format documentation"))
 
+;;;###autoload
 (defun run-pytest-on-current-file ()
   "Executes pytest with the current file name."
   (interactive)

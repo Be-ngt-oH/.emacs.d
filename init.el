@@ -215,18 +215,11 @@
   (markdown-indent-on-enter nil)
   (markdown-command "pandoc --to html5 --toc --standalone --mathjax"))
 
-(use-package config-osx-specifics :load-path "config/" :if (eq system-type 'darwin))
-(use-package config-faces :load-path "config/")
-(use-package config-extra-commands :load-path "config/"
-  :commands (open-on-github
-             copy-github-url-as-kill
-             run-shell-command-with-file-name
-             run-shell-command-with-file-name-and-line
-             projectile-copy-filepath-as-kill
-             run-rspec-on-current-file
-             run-rspec-on-current-line
-             run-rspec-outline-on-current-file
-             run-pytest-on-current-file)
+;; The files in user-lisp/ are compiled and their autoloads registered
+;; by Emacs at startup.
+(use-package config-osx-specifics :if (eq system-type 'darwin))
+(use-package config-faces)
+(use-package config-extra-commands
   :bind (
          :map compilation-mode-map
          ("C-c r" . compilation-toggle-comint-mode)
