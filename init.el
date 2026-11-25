@@ -31,7 +31,13 @@
   :custom
   (eglot-confirm-server-initiated-edits nil)
   (eglot-ignored-server-capabilities '(:documentHighlightProvider))
-  :hook ((js-base-mode typescript-ts-base-mode) . eglot-ensure))
+  :hook
+  ((js-base-mode typescript-ts-base-mode) . eglot-ensure)
+  (eglot-managed-mode . (lambda () (eldoc-mode -1))))
+
+(use-package jsonrpc
+  :config
+  (fset 'jsonrpc--log-event #'ignore))
 
 (use-package grep
   :defer t
@@ -61,7 +67,12 @@
          ("S-<right>" . windmove-right)))
 
 (use-package expand-region :ensure t :bind ("M-h" . er/expand-region))
-(use-package apheleia :ensure t :hook prog-mode)
+(use-package apheleia
+  :ensure t
+  :hook prog-mode
+  :config
+  (setf (alist-get 'rubocop apheleia-formatters)
+        '("bundle" "exec" "rubocop" "--stdin" filepath "--auto-correct" "--stderr" "--format" "quiet" "--fail-level" "fatal")))
 (use-package editorconfig :ensure t :config (editorconfig-mode t))
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
 (use-package add-node-modules-path :ensure t :hook ((js-base-mode typescript-ts-base-mode) . add-node-modules-path))
@@ -77,7 +88,8 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :custom
   (projectile-mode t)
-  (projectile-completion-system 'ivy))
+  (projectile-completion-system 'ivy)
+  (projectile-create-missing-test-files t))
 
 (use-package multiple-cursors
   :ensure t
@@ -155,6 +167,39 @@
   :config
   (add-hook 'git-commit-mode-hook (lambda () (setq fill-column 72))))
 
+(defun tsx-close-tag ()
+  "Insert the closing tag for the nearest unclosed JSX element."
+  (interactive)
+  (let ((tag-stack '())
+        found)
+    (save-excursion
+      (while (and (not found)
+                  (re-search-backward "</?[A-Za-z]" nil t))
+        (cond
+         ((looking-at "</\\([A-Za-z][A-Za-z0-9.:_-]*\\)")
+          (push (match-string-no-properties 1) tag-stack))
+         ((looking-at "<\\([A-Za-z][A-Za-z0-9.:_-]*\\)")
+          (let* ((tag (match-string-no-properties 1))
+                 (self-closing
+                  (save-excursion
+                    (let ((bound (save-excursion
+                                   (forward-char)
+                                   (if (search-forward "<" nil t)
+                                       (match-beginning 0)
+                                     (point-max)))))
+                      (re-search-forward "/\\s-*>" bound t)))))
+            (unless self-closing
+              (if (equal (car tag-stack) tag)
+                  (pop tag-stack)
+                (setq found tag))))))))
+    (if found
+        (progn (insert "</" found ">")
+               (indent-according-to-mode))
+      (message "Nothing to close"))))
+
+(use-package typescript-ts-mode
+  :bind (:map tsx-ts-mode-map ("C-c C-e" . tsx-close-tag)))
+
 (use-package markdown-mode
   :ensure t
   :defer t
@@ -172,9 +217,6 @@
              projectile-copy-filepath-as-kill
              run-rspec-outline-on-current-file)
   :bind (
-         :map ruby-base-mode-map
-         ("C-c C-t" . run-rspec-on-current-file)
-         ("C-c t" . run-rspect-on-current-line)
          :map compilation-mode-map
          ("C-c r" . compilation-toggle-comint-mode)
          :map comint-mode-map
@@ -184,7 +226,11 @@
     :bind (
            :map python-base-mode-map
            ("C-c C-t" . run-pytest-on-current-file)))
-  )
+  (use-package ruby
+    :bind (
+           :map ruby-base-mode-map
+           ("C-c C-t" . run-rspec-on-current-file)
+           ("C-c t" . run-rspec-on-current-line))))
 
 (use-package emacs
   :config
@@ -207,3 +253,5 @@
   (add-to-list 'major-mode-remap-alist '(js-json-mode . json-ts-mode))
   (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
   (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode)))
+
+(load "~/.emacs.d/custom.el")
