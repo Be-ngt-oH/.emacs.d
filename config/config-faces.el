@@ -29,9 +29,4 @@
   (typescript-ts-jsx-tag-face ((t (:inherit font-lock-keyword-face))))
   (typescript-ts-jsx-attribute-face ((t (:inherit font-lock-variable-name-face)))))
 
-(use-package flycheck-posframe
-  :defer t
-  :custom-face
-  (flycheck-posframe-face ((t (:background "#191a1b")))))
-
 (provide 'config-faces)

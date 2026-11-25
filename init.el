@@ -31,13 +31,10 @@
   :custom
   (eglot-confirm-server-initiated-edits nil)
   (eglot-ignored-server-capabilities '(:documentHighlightProvider))
+  (eglot-events-buffer-config '(:size 0 :format full))
   :hook
   ((js-base-mode typescript-ts-base-mode) . eglot-ensure)
   (eglot-managed-mode . (lambda () (eldoc-mode -1))))
-
-(use-package jsonrpc
-  :config
-  (fset 'jsonrpc--log-event #'ignore))
 
 (use-package grep
   :defer t
@@ -67,8 +64,6 @@
   (dolist (map (list python-mode-map python-ts-mode-map))
     (bind-key "C-c C-t" #'run-pytest-on-current-file map)))
 
-(use-package sql :defer t :hook (sql-interactive-mode . (lambda () (setq truncate-lines t))))
-
 (use-package flymake
   :hook prog-mode
   :bind (
@@ -92,7 +87,7 @@
 (use-package editorconfig :ensure t :config (editorconfig-mode t))
 (use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
 (use-package add-node-modules-path :ensure t :hook ((js-base-mode typescript-ts-base-mode) . add-node-modules-path))
-(use-package rg :ensure t :defer t :hook (rg-mode . (lambda () (setq truncate-lines t))))
+(use-package rg :ensure t :defer t)
 (use-package pyvenv :ensure t :defer t)
 (use-package inf-ruby :ensure t :defer t)
 
@@ -160,19 +155,6 @@
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles . (partial-completion))))))
-
-;; (use-package flycheck
-;;   :ensure t
-;;   :custom
-;;   (flycheck-global-modes '(not typescript-ts-mode tsx-ts-mode js-mode javascript-mode js-ts-mode js-jsx-mode))
-;;   (flycheck-highlighting-mode 'symbols)
-;;   (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-;;   (global-flycheck-mode t)
-;;   :bind (
-;;          :map flycheck-mode-map
-;;          ("M-n" . flycheck-next-error)
-;;          ("M-p" . flycheck-previous-error)))
-;; (use-package flycheck-posframe :ensure t :hook flycheck-mode)
 
 (use-package git-commit
   :ensure magit
