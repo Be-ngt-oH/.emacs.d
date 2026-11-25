@@ -7,8 +7,8 @@
   :custom-face
   (diff-file-header ((t (:background unspecified))))
   (diff-header ((t (:background unspecified))))
-  (diff-refine-added ((t (:inherit 'diff-added :background unspecified))))
-  (diff-refine-removed ((t (:inherit 'diff-removed :background unspecified))))
+  (diff-refine-added ((t (:inherit diff-added :background unspecified))))
+  (diff-refine-removed ((t (:inherit diff-removed :background unspecified))))
   :config
   (set-face-attribute 'diff-added nil :background 'unspecified :foreground (face-foreground 'diff-indicator-added))
   (set-face-attribute 'diff-removed nil :background 'unspecified :foreground (face-foreground 'diff-indicator-removed)))

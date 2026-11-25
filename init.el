@@ -51,6 +51,22 @@
   (ruby-insert-encoding-magic-comment nil)
   (ruby-align-to-stmt-keywords t))
 
+;; On Emacs 29 the *-ts-mode keymaps don't inherit from the *-base-mode
+;; keymaps, so bind in both the classic and the tree-sitter mode maps.
+(use-package ruby-ts-mode
+  :defer t
+  :config
+  (dolist (map (list ruby-mode-map ruby-ts-mode-map))
+    (bind-keys :map map
+               ("C-c C-t" . run-rspec-on-current-file)
+               ("C-c t" . run-rspec-on-current-line))))
+
+(use-package python
+  :defer t
+  :config
+  (dolist (map (list python-mode-map python-ts-mode-map))
+    (bind-key "C-c C-t" #'run-pytest-on-current-file map)))
+
 (use-package sql :defer t :hook (sql-interactive-mode . (lambda () (setq truncate-lines t))))
 
 (use-package flymake
@@ -89,7 +105,9 @@
   :custom
   (projectile-mode t)
   (projectile-completion-system 'ivy)
-  (projectile-create-missing-test-files t))
+  (projectile-create-missing-test-files t)
+  :config
+  (setq projectile-project-root-files (delete "WORKSPACE" projectile-project-root-files)))
 
 (use-package multiple-cursors
   :ensure t
@@ -140,7 +158,7 @@
   :custom
   ;; https://github.com/minad/corfu#installation-and-configuration
   (completion-styles '(orderless basic))
-  (completation-category-defaults nil)
+  (completion-category-defaults nil)
   (completion-category-overrides '((file (styles . (partial-completion))))))
 
 ;; (use-package flycheck
@@ -157,7 +175,7 @@
 ;; (use-package flycheck-posframe :ensure t :hook flycheck-mode)
 
 (use-package git-commit
-  :ensure t
+  :ensure magit
   :custom
   (git-commit-setup-hook '(git-commit-setup-changelog-support
                            git-commit-propertize-diff
@@ -215,22 +233,15 @@
              run-shell-command-with-file-name
              run-shell-command-with-file-name-and-line
              projectile-copy-filepath-as-kill
-             run-rspec-outline-on-current-file)
+             run-rspec-on-current-file
+             run-rspec-on-current-line
+             run-rspec-outline-on-current-file
+             run-pytest-on-current-file)
   :bind (
          :map compilation-mode-map
          ("C-c r" . compilation-toggle-comint-mode)
          :map comint-mode-map
-         ("C-c r" . compilation-toggle-comint-mode))
-  :config
-  (use-package python
-    :bind (
-           :map python-base-mode-map
-           ("C-c C-t" . run-pytest-on-current-file)))
-  (use-package ruby
-    :bind (
-           :map ruby-base-mode-map
-           ("C-c C-t" . run-rspec-on-current-file)
-           ("C-c t" . run-rspec-on-current-line))))
+         ("C-c r" . compilation-toggle-comint-mode)))
 
 (use-package emacs
   :config
@@ -254,4 +265,4 @@
   (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
   (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode)))
 
-(load "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
