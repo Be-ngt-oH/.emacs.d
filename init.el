@@ -16,6 +16,7 @@
 (use-package cus-edit :custom (custom-file (expand-file-name "custom.el" user-emacs-directory)))
 (use-package savehist :config (savehist-mode))
 (use-package saveplace :custom (save-place-file (expand-file-name "places" user-emacs-directory)) (save-place-mode 1))
+(use-package autorevert :custom (global-auto-revert-mode t))
 (use-package custom :config (load-theme 'wombat))
 
 (use-package display-line-numbers :hook (prog-mode latex-mode markdown-mode yaml-ts-mode))
