@@ -50,8 +50,9 @@
   (ruby-insert-encoding-magic-comment nil)
   (ruby-align-to-stmt-keywords t))
 
-;; On Emacs 29 the *-ts-mode keymaps don't inherit from the *-base-mode
-;; keymaps, so bind in both the classic and the tree-sitter mode maps.
+;; Not all *-ts-mode keymaps inherit from the *-base-mode keymaps (e.g.
+;; ruby-ts-mode-map doesn't), so bind in both the classic and the
+;; tree-sitter mode maps.
 (use-package ruby-ts-mode
   :defer t
   :config
@@ -230,23 +231,13 @@
 (use-package emacs
   :config
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . mhtml-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode))
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
-  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . mhtml-mode)))
 
-  (add-to-list 'major-mode-remap-alist '(sh-mode . bash-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(csharp-mode . csharp-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(html-mode . html-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(java-mode . java-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(js-mode . js-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(js-json-mode . json-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode)))
+;; Use tree-sitter modes everywhere.  Missing grammars are offered for
+;; installation on first use (`treesit-auto-install-grammar' defaults to
+;; `ask').  This also remaps the mhtml-mode entries above.
+(use-package treesit
+  :custom
+  (treesit-enabled-modes t))
 
 (load custom-file 'noerror)
