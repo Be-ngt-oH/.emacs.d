@@ -9,7 +9,8 @@
   (fill-column 80)
   (indent-tabs-mode nil)
   (delete-selection-mode 1)
-  (global-subword-mode 1))
+  (global-subword-mode 1)
+  (mode-line-collapse-minor-modes t))
 
 (use-package server :commands server-running-p :config (unless (server-running-p) (server-start)))
 (use-package package :config (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
