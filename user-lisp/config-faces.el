@@ -1,9 +1,14 @@
-;;; -*- lexical-binding: t -*-
+;;; config-faces.el --- Face tweaks on top of the theme  -*- lexical-binding: t -*-
+
+;;; Commentary:
 
 ;; Set the specs as override specs, so they layer on top of the theme.
 ;; use-package's :custom-face did this until Emacs 31, which changed it
 ;; to set the defface spec instead, which the theme takes precedence
 ;; over (bug#77928).
+
+;;; Code:
+
 (defun config-faces-override (&rest specs)
   "Set each (FACE SPEC) in SPECS as FACE's override spec."
   (pcase-dolist (`(,face ,spec) specs)
@@ -30,3 +35,4 @@
   (set-face-attribute 'diff-removed nil :background 'unspecified :foreground (face-foreground 'diff-indicator-removed)))
 
 (provide 'config-faces)
+;;; config-faces.el ends here

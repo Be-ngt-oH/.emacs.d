@@ -1,4 +1,14 @@
-;;; -*- lexical-binding: t -*-
+;;; config-extra-commands.el --- Extra interactive commands  -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;; GitHub links, running shell commands and test runners on the current
+;; file, and toggling compilation buffers between comint and compilation
+;; mode.
+
+;;; Code:
+
+(require 'subr-x)
 
 ;;;###autoload
 (defun open-on-github ()
@@ -14,7 +24,7 @@
   (message "%s" (github-url)))
 
 (defun github-url ()
-  "The URL to the current file/line on GitHub"
+  "The URL to the current file/line on GitHub."
   (let*
       ((base_url "https://github.com/")
        (git_remote (shell-command-to-string "git config --get remote.origin.url"))
@@ -40,14 +50,15 @@
 
 ;;;###autoload
 (defun run-shell-command-with-file-name (command)
-  "Invoke a shell command with the current file."
+  "Invoke the shell COMMAND with the current file."
   (interactive "sCommand: ")
   (projectile-with-default-dir
       (projectile-project-root) (compile
                                  (concat command " " (buffer-file-name)))))
 ;;;###autoload
 (defun run-shell-command-with-file-name-and-line (command)
-  "Invoke a shell command with the current file name and line separated by a colon."
+  "Invoke the shell COMMAND with the current file name and line.
+The file name and line number are separated by a colon."
   (interactive "sCommand: ")
   (projectile-with-default-dir
       (projectile-project-root) (compile
@@ -63,7 +74,7 @@
 
 ;;;###autoload
 (defun compilation-toggle-comint-mode ()
-  "Toggles between comint/read-only-mode and compilation mode."
+  "Toggles between comint/`read-only-mode' and compilation mode."
   (interactive)
   (if (eq major-mode 'compilation-mode)
       (progn (call-interactively 'comint-mode) (call-interactively 'read-only-mode))
@@ -92,3 +103,4 @@
   (run-shell-command-with-file-name "pytest"))
 
 (provide 'config-extra-commands)
+;;; config-extra-commands.el ends here

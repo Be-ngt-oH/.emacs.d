@@ -1,4 +1,10 @@
-;;; -*- lexical-binding: t -*-
+;;; early-init.el --- Early initialization  -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;; Loaded before the package system and the first frame are set up.
+
+;;; Code:
 
 ;; Disable GC during startup
 (defvar gc-cons-threshold-default gc-cons-threshold)
@@ -18,3 +24,6 @@
 ;; https://github.com/doomemacs/doomemacs/blob/master/lisp/doom-start.el
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
+
+(provide 'early-init)
+;;; early-init.el ends here

@@ -1,4 +1,10 @@
-;;; -*- lexical-binding: t -*-
+;;; init.el --- Emacs configuration  -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;; Personal Emacs configuration.  More of it lives in user-lisp/.
+
+;;; Code:
 
 (use-package emacs
   :custom
@@ -34,6 +40,12 @@
   (show-paren-mode nil)
   (show-paren-not-in-comments-or-strings 'all))
 
+;; Let Flymake's byte-compile check see the installed packages, so it
+;; doesn't flag their functions and variables as unknown.
+(use-package elisp-mode
+  :config
+  (setq elisp-flymake-byte-compile-load-path (cons "./" load-path)))
+
 (use-package dired :defer t :config (put 'dired-find-alternate-file 'disabled nil))
 (use-package flyspell :hook (latex-mode markdown-mode))
 
@@ -63,6 +75,7 @@
 ;; tree-sitter mode maps.
 (use-package ruby-ts-mode
   :defer t
+  :functions run-rspec-on-current-file run-rspec-on-current-line
   :config
   (dolist (map (list ruby-mode-map ruby-ts-mode-map))
     (bind-keys :map map
@@ -71,6 +84,7 @@
 
 (use-package python
   :defer t
+  :functions run-pytest-on-current-file
   :config
   (dolist (map (list python-mode-map python-ts-mode-map))
     (bind-key "C-c C-t" #'run-pytest-on-current-file map)))
@@ -96,7 +110,10 @@
   (setf (alist-get 'rubocop apheleia-formatters)
         '("bundle" "exec" "rubocop" "--stdin" filepath "--auto-correct" "--stderr" "--format" "quiet" "--fail-level" "fatal")))
 (use-package editorconfig :config (editorconfig-mode t))
-(use-package exec-path-from-shell :ensure t :config (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :ensure t
+  :functions exec-path-from-shell-initialize
+  :config (exec-path-from-shell-initialize))
 (use-package add-node-modules-path :ensure t :hook ((js-base-mode typescript-ts-base-mode) . add-node-modules-path))
 (use-package rg :ensure t :defer t)
 (use-package pyvenv :ensure t :defer t)
@@ -132,16 +149,21 @@
 
 (use-package ivy
   :ensure t
+  :functions ivy-mode
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-use-selectable-prompt t)
   :config
   (ivy-mode 1))
-(use-package ivy-prescient :ensure t :config (ivy-prescient-mode 1))
+(use-package ivy-prescient
+  :ensure t
+  :functions ivy-prescient-mode
+  :config (ivy-prescient-mode 1))
 
 (use-package corfu
   :ensure t
   :demand t
+  :functions global-corfu-mode corfu-mode
   :custom
   (corfu-auto t)
   (corfu-preview-current nil)
@@ -242,3 +264,6 @@
   (treesit-enabled-modes t))
 
 (load custom-file 'noerror)
+
+(provide 'init)
+;;; init.el ends here
