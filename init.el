@@ -10,6 +10,7 @@
   (indent-tabs-mode nil)
   (delete-selection-mode 1)
   (global-subword-mode 1)
+  (kill-ring-deindent-mode 1)
   (mode-line-collapse-minor-modes t))
 
 (use-package server :commands server-running-p :config (unless (server-running-p) (server-start)))
